@@ -12,8 +12,6 @@ package auditboard
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EsgCategories type satisfies the MappedNullable interface at compile time

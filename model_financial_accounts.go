@@ -12,8 +12,6 @@ package auditboard
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the FinancialAccounts type satisfies the MappedNullable interface at compile time
