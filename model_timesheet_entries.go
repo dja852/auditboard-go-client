@@ -436,48 +436,6 @@ func (o TimesheetEntries) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *TimesheetEntries) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"date",
-		"hours",
-		"user_id",
-		"timesheetable_type",
-		"timesheetable_id",
-		"timesheet_project_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTimesheetEntries := _TimesheetEntries{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTimesheetEntries)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TimesheetEntries(varTimesheetEntries)
-
-	return err
-}
-
 type NullableTimesheetEntries struct {
 	value *TimesheetEntries
 	isSet bool

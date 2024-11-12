@@ -11,10 +11,11 @@ package auditboard
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/dja852/auditboard-go-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/dja852/auditboard-go-client"
 )
 
 func Test_auditboard_ActionPlansArchivesAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_auditboard_ActionPlansArchivesAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansArchivesAPIService ActionPlansArchivesActionPlansArchiveIdGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var actionPlansArchiveId int64
 
@@ -38,7 +39,7 @@ func Test_auditboard_ActionPlansArchivesAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansArchivesAPIService ActionPlansArchivesGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ActionPlansArchivesAPI.ActionPlansArchivesGet(context.Background()).Execute()
 

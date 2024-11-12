@@ -11,10 +11,11 @@ package auditboard
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/dja852/auditboard-go-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/dja852/auditboard-go-client"
 )
 
 func Test_auditboard_ActionPlansAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_auditboard_ActionPlansAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansAPIService ActionPlansActionPlanIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var actionPlanId int64
 
@@ -38,7 +39,7 @@ func Test_auditboard_ActionPlansAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansAPIService ActionPlansActionPlanIdGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var actionPlanId int64
 
@@ -52,7 +53,7 @@ func Test_auditboard_ActionPlansAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansAPIService ActionPlansActionPlanIdPut", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var actionPlanId int64
 
@@ -66,7 +67,7 @@ func Test_auditboard_ActionPlansAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansAPIService ActionPlansGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ActionPlansAPI.ActionPlansGet(context.Background()).Execute()
 
@@ -78,7 +79,7 @@ func Test_auditboard_ActionPlansAPIService(t *testing.T) {
 
 	t.Run("Test ActionPlansAPIService ActionPlansPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ActionPlansAPI.ActionPlansPost(context.Background()).Execute()
 

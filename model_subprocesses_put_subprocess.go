@@ -318,45 +318,6 @@ func (o SubprocessesPutSubprocess) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *SubprocessesPutSubprocess) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"uid",
-		"name",
-		"id_code",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSubprocessesPutSubprocess := _SubprocessesPutSubprocess{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubprocessesPutSubprocess)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SubprocessesPutSubprocess(varSubprocessesPutSubprocess)
-
-	return err
-}
-
 type NullableSubprocessesPutSubprocess struct {
 	value *SubprocessesPutSubprocess
 	isSet bool

@@ -2990,44 +2990,6 @@ func (o ActionPlans) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *ActionPlans) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"status",
-		"pending_remediation_due_date_count",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varActionPlans := _ActionPlans{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varActionPlans)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ActionPlans(varActionPlans)
-
-	return err
-}
-
 type NullableActionPlans struct {
 	value *ActionPlans
 	isSet bool

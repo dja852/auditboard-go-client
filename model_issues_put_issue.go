@@ -4267,46 +4267,6 @@ func (o IssuesPutIssue) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *IssuesPutIssue) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-		"issue_category_id",
-		"scopes",
-		"open_revision_count",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varIssuesPutIssue := _IssuesPutIssue{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varIssuesPutIssue)
-
-	if err != nil {
-		return err
-	}
-
-	*o = IssuesPutIssue(varIssuesPutIssue)
-
-	return err
-}
-
 type NullableIssuesPutIssue struct {
 	value *IssuesPutIssue
 	isSet bool

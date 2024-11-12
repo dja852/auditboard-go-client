@@ -1668,49 +1668,6 @@ func (o UsersPutUser) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *UsersPutUser) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"first_name",
-		"last_name",
-		"email",
-		"mfa_enabled",
-		"cell_phone",
-		"login_attempt",
-		"core_modules",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varUsersPutUser := _UsersPutUser{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUsersPutUser)
-
-	if err != nil {
-		return err
-	}
-
-	*o = UsersPutUser(varUsersPutUser)
-
-	return err
-}
-
 type NullableUsersPutUser struct {
 	value *UsersPutUser
 	isSet bool

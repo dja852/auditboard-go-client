@@ -440,44 +440,6 @@ func (o GlobalAttributesPutGlobalAttribute) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-func (o *GlobalAttributesPutGlobalAttribute) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"enabled",
-		"scope",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varGlobalAttributesPutGlobalAttribute := _GlobalAttributesPutGlobalAttribute{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGlobalAttributesPutGlobalAttribute)
-
-	if err != nil {
-		return err
-	}
-
-	*o = GlobalAttributesPutGlobalAttribute(varGlobalAttributesPutGlobalAttribute)
-
-	return err
-}
-
 type NullableGlobalAttributesPutGlobalAttribute struct {
 	value *GlobalAttributesPutGlobalAttribute
 	isSet bool

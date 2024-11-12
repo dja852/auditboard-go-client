@@ -4377,48 +4377,6 @@ func (o OpsAudits) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *OpsAudits) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"title",
-		"is_template",
-		"uid",
-		"scopes",
-		"is_processing",
-		"is_risk_assessment_enabled",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varOpsAudits := _OpsAudits{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOpsAudits)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OpsAudits(varOpsAudits)
-
-	return err
-}
-
 type NullableOpsAudits struct {
 	value *OpsAudits
 	isSet bool
